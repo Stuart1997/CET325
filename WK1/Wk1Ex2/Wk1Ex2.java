@@ -1,53 +1,49 @@
+import java.util.Arrays;
+import java.util.Collections;
+
 class Wk1Ex2 {
     public static void main(String[] args) {
+        int[] aryNums = new int[6];
+        aryNums[0] = 23;
+        aryNums[1] = 6;
+        aryNums[2] = 47;
+        aryNums[3] = 35;
+        aryNums[4] = 2;
+        aryNums[5] = 14;
 
-        String argumentOne = args[0];
-        String argumentTwoStr = args[1];
-        int argumentTwo = Integer.parseInt(argumentTwoStr);
-        String argumentThreeStr = args[2];
-        char argumentThree = argumentThreeStr.charAt(0);
+        int i;
+        Integer[] integerArray = new Integer[aryNums.length];
 
-        Boolean acceptArgOne;
-        Boolean acceptArgTwo;
-        Boolean acceptArgThree = false;
-
-        switch (argumentOne) {
-            case "d": acceptArgOne = true;
-                break;
-
-            case "e": acceptArgOne = true;
-                break;
-
-            default: acceptArgOne = false;
-                break;
+		//Instantiates the values of integerArray by looping through aryNums and adds the values
+        for(i = 0; i < aryNums.length; i++) {
+        	integerArray[i] = new Integer(aryNums[i]);
         }
 
-        if (argumentTwo > 0 && argumentTwo < 27) acceptArgTwo = true; 
-        else acceptArgTwo = false;
-
-        char[] lowerCaseAlphabet = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-                					'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
-
-        for (char letter: lowerCaseAlphabet) {
-            if (argumentThree == letter)
-                acceptArgThree = true;
+		Display the arrays in reverse order
+        for(i = 0; i < aryNums.length; i++) {
+        	System.out.println("Num: " + integerArray[i]);
         }
 
-        if (acceptArgOne == false) {
-        	System.out.println("'" + argumentOne + "'" + " is not a valid first parameter.\n Valid parameters are: d and e.");
+        //Exercise G
+        int totalValue = 0;
+        for(i = 0; i < aryNums.length; i++) {
+        	totalValue += aryNums[i];
         }
-        if (acceptArgTwo == false) {
-        	System.out.println("'" + argumentTwo + "'" + " is not a valid second parameter.\n Valid parameters are: 1 to 26.");
-        }
-        if (acceptArgTwo == false) {
-        	System.out.println("'" + argumentThree + "'" + " is not a valid third parameter.\n Valid parameters are: lower case a-z.");
-        }
-        if (acceptArgOne == true && acceptArgTwo == true && acceptArgThree == true) {
-        	System.out.println("Thank you. All parameters are valid: " + argumentOne + ", " + argumentTwo + ", " + argumentThree + ".");
+        System.out.println("Exercise G: " + totalValue);
+         System.out.println();
+
+        //Exercise H
+        //Sort the array by reversing the values from high to low
+        Arrays.sort(integerArray, Collections.reverseOrder());
+        System.out.println("Exercise H: " + integerArray[0]);
+        System.out.println();
+
+        //Exercise I
+        for(i = 0; i < aryNums.length; i++) {
+        	if(aryNums[i] % 2 != 0) {
+        		System.out.println("Exercise I: " + aryNums[i]);
+        	}
         }
 
     }
-
 }
-
-//Run with 'java Wk1Ex2 d 15 hello'
